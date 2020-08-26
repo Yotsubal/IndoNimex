@@ -13,4 +13,8 @@ OK, this repository only embeding from their website
 Dunno, just want to create it, this script use their website vurnebility,
 maybe they will fix this soon
 
+## Contributing
 Feel free to creating an issue, or creating a Pull request
+
+## Like this Repo?
+Give this repo star :D
