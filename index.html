@@ -1,1 +1,60 @@
-<h1> Hello </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IndoNimex</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>.
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-flash/dist/videojs-flash.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+</head>
+<body>
+  
+<div class="container steps step-1">
+    <div class="row justify-content-center">
+    <b> IndoNimex </b>
+	</div>    
+<hr>
+	<div class="row justify-content-center">
+    <b> SILAHKAN PILIH CHANNEL YANG AKAN DITONTON</b>
+	</div> 
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card p-2 select_channel" data-channel="97" style="height: 100px;cursor:pointer;">
+              <img class="card-img m-auto" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Animax_logo.svg/1200px-Animax_logo.svg.png" alt="Animax" style="max-height: 80px;width: auto;max-width: 100%;">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card p-2 select_channel" data-channel="38" style="height: 100px;cursor:pointer;">
+              <img class="card-img m-auto" src="//d1eet599aje0m8.cloudfront.net/wp-content/uploads/2017/03/aniplus_vod_logo-e1490159024750.png" alt="Aniplus" style="max-height: 80px;width: auto;max-width: 100%;">
+            </div>
+        </div>
+        
+	</div>     
+</div>
+<video id="idvid" width="100%" height="100%" class="video-js vjs-default-skin" controls style="display:none">
+  <source id="main-video" type="application/x-mpegURL">
+</video>
+
+<script>
+    if (location.protocol !== 'http:') {
+        location.replace(`http:${location.href.substring(location.protocol.length)}`);
+    }
+    $(".select_channel").click(function() {
+        $(".steps").hide();
+        id = $(this).data('channel');
+        $.get('https://cors-anywhere.herokuapp.com/http://dens.tv/tvpage_octo/player_tv/1/' + id, function(data) {
+            $("#main-video").attr("src", data.playurl)
+            $("#idvid").attr("style", "");
+            var player = videojs('idvid');
+            player.play();
+        })
+    })
+</script>
+</body>
+</html>
