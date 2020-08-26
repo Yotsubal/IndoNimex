@@ -12,3 +12,5 @@ OK, this repository only embeding from their website
 ## Is this Illegal?
 Dunno, just want to create it, this script use their website vurnebility,
 maybe they will fix this soon
+
+Feel free to creating an issue, or creating a Pull request
