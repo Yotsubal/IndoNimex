@@ -47,7 +47,8 @@
     $(".select_channel").click(function() {
         $(".steps").hide();
         id = $(this).data('channel');
-        $.get('https://cors-anywhere.herokuapp.com/http://dens.tv/tvpage_octo/player_tv/1/' + id, function(data) {
+        $.get('http://www.whateverorigin.org/get?url=http://dens.tv/tvpage_octo/player_tv/1/' + id, function(data) {
+	    data = data.contents;
             $("#main-video").attr("src", data.playurl)
             $("#idvid").attr("style", "position:absolute;top:0;left:0;width:100vw;height:100vh");
             var player = videojs('idvid');
